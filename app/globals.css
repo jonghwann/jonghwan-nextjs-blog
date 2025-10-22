@@ -1,0 +1,65 @@
+@import "tailwindcss";
+@import "../src/shared/styles/animations.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-shadow: var(--shadow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-tertiary-foreground: var(--tertiary-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-inverse: var(--inverse);
+  --color-inverse-foreground: var(--inverse-foreground);
+  --color-inverse-hover: var(--inverse-hover);
+  --font-noto-sans-kr: var(--font-noto-sans-kr);
+  --z-header: 100;
+  --z-scroll-progress-bar: 200;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --border: #eeeeee;
+  --shadow: 0 0.2em 0.6em #e0e0e0;
+  --secondary: #f1f3f5;
+  --secondary-foreground: #212121;
+  --secondary-hover: #dee2e6;
+  --tertiary-foreground: #7E8082;
+  --accent-foreground: #567ec0;
+  --inverse: #232326;
+  --inverse-foreground: #ffffff;
+  --inverse-hover: #3a3a3d;
+}
+
+.dark {
+  --background: #232326;
+  --foreground: #ffffff;
+  --border: #424242;
+  --shadow: 0 0.2em 0.6em #1a1e22;
+  --secondary: #2d2d2d;
+  --secondary-foreground: #bdbdbd;
+  --secondary-hover: #404040;
+  --tertiary-foreground: #adb5bd;
+  --inverse: #ffffff;
+  --inverse-foreground: #232326;
+  --inverse-hover: #e0e0e0;
+}
+
+@layer base {
+  * {
+    @apply border-border transition-colors duration-300 ease-in-out;
+  }
+
+  body {
+    @apply bg-background text-foreground font-noto-sans-kr;
+  }
+
+  .no-color-transitions * {
+    @apply !transition-opacity !transition-transform;
+  }
+}
