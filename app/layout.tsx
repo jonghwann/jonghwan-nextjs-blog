@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { QueryProvider, ThemeProvider } from '@/app/providers';
-import { notoSansKR, SITE_CONFIG } from '@/shared/config';
+import { notoSansKR, SITE_CONFIG, sourceCodePro } from '@/shared/config';
 import { cn } from '@/shared/lib';
 import { Layout } from '@/widgets/layout';
 import './globals.css';
@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: SITE_CONFIG.title,
   description: SITE_CONFIG.description,
+  verification: {
+    google: SITE_CONFIG.verification.google,
+    other: {
+      'naver-site-verification': SITE_CONFIG.verification.naver,
+    },
+  },
   openGraph: {
     title: SITE_CONFIG.title,
     description: SITE_CONFIG.description,
@@ -36,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className="scroll-smooth" suppressHydrationWarning>
-      <body className={cn(notoSansKR.variable, 'antialiased')}>
+      <body className={cn(notoSansKR.variable, sourceCodePro.variable, 'antialiased')}>
         <QueryProvider>
           <ThemeProvider>
             <Layout>{children}</Layout>
