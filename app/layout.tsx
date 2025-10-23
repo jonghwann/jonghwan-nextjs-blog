@@ -1,3 +1,5 @@
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { QueryProvider, ThemeProvider } from '@/app/providers';
 import { notoSansKR, SITE_CONFIG, sourceCodePro } from '@/shared/config';
@@ -48,6 +50,9 @@ export default function RootLayout({
             <Layout>{children}</Layout>
           </ThemeProvider>
         </QueryProvider>
+
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
