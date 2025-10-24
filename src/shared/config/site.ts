@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   title: 'jonghwan.blog',
   description: '꾸준한 성장을 위한 학습 여정을 기록합니다.',
   verification: {
-    google: 'gcMBGXzga7cUGggqBJtPyZJAReVW04fpbIKSInIXVy0',
+    google: 'UvU6AqukfUBvH6vpsr81Bz6sfNJix91Wd87peW7N4Go',
     naver: '55c6d6e8c4de17d5049260413c4105fe2fef1c19',
   },
   siteName: '장종환 개발 블로그',
