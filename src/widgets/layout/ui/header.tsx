@@ -1,20 +1,29 @@
 'use client';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import { useMediaQuery, useScrollVisibility, useVisible } from '@/shared/lib';
 import { Menu } from './menu';
 import { Nav } from './nav';
 
 export function Header() {
+  const pathname = usePathname();
+
   const { isVisible, toggle, hide } = useVisible();
   const isDesktop = useMediaQuery('(min-width: 1024px)');
   const marginTop = useScrollVisibility(65, isDesktop);
+  
+  useEffect(() => {
+    if (isVisible) {
+      hide();
+    }
+  }, [pathname]);
 
   useEffect(() => {
     if (isDesktop && isVisible) {
       hide();
     }
-  }, [isDesktop, isVisible, hide]);
+  }, [isDesktop]);
 
   return (
     <header
