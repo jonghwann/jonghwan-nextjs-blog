@@ -30,7 +30,7 @@ export function ThemeToggle() {
   if (!mounted) return null;
 
   return (
-    <button type="button" onClick={handleClick} className="relative size-5 cursor-pointer">
+    <button type="button" onClick={handleClick} className='relative block size-5 cursor-pointer'>
       {icons.map(({ icon: Icon, theme }) => (
         <AnimateIcon key={theme} animateOnHover>
           <Icon
