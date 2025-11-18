@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "../src/shared/styles/animations.css";
+@import "../src/shared/styles/code-blocks.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -30,7 +31,7 @@
   --secondary: #f1f3f5;
   --secondary-foreground: #212121;
   --secondary-hover: #dee2e6;
-  --tertiary-foreground: #7E8082;
+  --tertiary-foreground: #666666;
   --accent-foreground: #567ec0;
   --inverse: #232326;
   --inverse-foreground: #ffffff;
@@ -38,14 +39,15 @@
 }
 
 .dark {
-  --background: #232326;
+  --background: #1f1f1f;
   --foreground: #ffffff;
   --border: #424242;
   --shadow: 0 0.2em 0.6em #1a1e22;
   --secondary: #2d2d2d;
   --secondary-foreground: #bdbdbd;
   --secondary-hover: #404040;
-  --tertiary-foreground: #adb5bd;
+  --tertiary-foreground: #8f8f8f;
+  --accent-foreground: #99c3ff;
   --inverse: #ffffff;
   --inverse-foreground: #232326;
   --inverse-hover: #e0e0e0;

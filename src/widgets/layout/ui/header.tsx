@@ -12,7 +12,7 @@ export function Header() {
   const { isVisible, toggle, hide } = useVisible();
   const isDesktop = useMediaQuery('(min-width: 1024px)');
   const marginTop = useScrollVisibility(65, isDesktop);
-  
+
   useEffect(() => {
     if (isVisible) {
       hide();
@@ -27,7 +27,7 @@ export function Header() {
 
   return (
     <header
-      className="fixed top-0 z-[var(--z-header)] w-full border-b bg-background/80 px-4 backdrop-blur-[5px]"
+      className='fixed top-0 z-[var(--z-header)] w-full border-b bg-background/80 px-4 backdrop-blur-[5px]'
       style={{ marginTop: isDesktop ? marginTop : 0 }}
     >
       <nav className="mx-auto max-w-[900px]">

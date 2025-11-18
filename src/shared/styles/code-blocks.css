@@ -1,0 +1,25 @@
+pre[data-theme*=" "] {
+  background-color: var(--shiki-light-bg) !important;
+}
+
+pre[data-theme*=" "] code {
+  background-color: transparent !important;
+  color: var(--shiki-light) !important;
+}
+
+pre[data-theme*=" "] code span {
+  color: var(--shiki-light) !important;
+}
+
+.dark pre[data-theme*=" "] {
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+.dark pre[data-theme*=" "] code {
+  background-color: transparent !important;
+  color: var(--shiki-dark) !important;
+}
+
+.dark pre[data-theme*=" "] code span {
+  color: var(--shiki-dark) !important;
+}
