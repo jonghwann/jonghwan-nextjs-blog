@@ -20,7 +20,7 @@ const components: MDXComponents = {
   ),
   p: ({ children, ...props }) => (
     <p
-      className="mb-[2rem] font-nanum-square-round leading-[1.9] sm:text-[1.05rem] lg:text-[1.1rem] xl:text-[1.15rem] [&_code]:mx-[0.2rem] [&_code]:break-words [&_code]:rounded-[0.4rem] [&_code]:border [&_code]:bg-[#f7f7f7] [&_code]:px-[0.3rem] [&_code]:py-[0.2rem] [&_code]:text-[0.9em] [&_code]:text-foreground dark:[&_code]:bg-[#2a2828]"
+      className='mb-[2rem] font-nanum-square-round leading-[1.9] sm:text-[1.05rem] lg:text-[1.1rem] xl:text-[1.15rem] [&_code]:mx-[0.2rem] [&_code]:break-words [&_code]:rounded-[0.4rem] [&_code]:bg-[#e83e8c1a] [&_code]:px-[0.3rem] [&_code]:py-[0.2rem] [&_code]:text-[#e83e8c] [&_code]:text-[0.9em] dark:[&_code]:bg-[#323232] dark:[&_code]:text-[#ff8926]'
       {...props}
     >
       {children}
@@ -28,7 +28,7 @@ const components: MDXComponents = {
   ),
   blockquote: ({ children, ...props }) => (
     <blockquote
-      className='mt-[1.5rem] mb-[2rem] rounded-[0.5rem] border-l-[0.5rem] bg-[#F4F4F4] p-[1rem] dark:border-[#404040] dark:bg-[#252525] [&>p]:mt-[2rem]'
+      className="mt-[1.5rem] mb-[2rem] rounded-[0.5rem] border-l-[0.5rem] bg-[#F8F9FA] p-[1rem] dark:bg-[#252525] [&>p]:mt-[2rem]"
       {...props}
     >
       {children}
@@ -63,7 +63,7 @@ const components: MDXComponents = {
   a: ({ children, ...props }) => (
     <a
       target="_blank"
-      className="text-accent-foreground underline decoration-dashed underline-offset-[0.45em]"
+      className="underline decoration-dashed underline-offset-[0.45em] hover:text-accent-foreground"
       {...props}
     >
       {children}
@@ -71,7 +71,7 @@ const components: MDXComponents = {
   ),
   pre: ({ children, ...props }) => (
     <pre
-      className="dark:!bg-[#2d2d2d] light:!bg-background mb-[2rem] overflow-auto rounded-[0.5rem] py-[1em] leading-[1.9] shadow-[var(--shadow)] sm:text-[1.05rem] lg:text-[1.1rem] xl:text-[1.15rem] [&_[data-highlighted-line]]:border-accent-foreground [&_[data-highlighted-line]]:border-l-4 [&_[data-highlighted-line]]:bg-[rgba(55,148,255,0.1)] [&_code>span]:px-[1em]"
+      className="dark:!bg-[#2d2d2d] light:!bg-background mb-[2rem] overflow-auto rounded-[0.5rem] py-[1em] leading-[1.9] shadow-[var(--shadow)] sm:text-[1.05rem] lg:text-[1.1rem] xl:text-[1.15rem][&_[data-highlighted-line]]:bg-[rgba(55,148,255,0.1)] [&_code>span]:px-[1em]"
       {...props}
     >
       {children}
