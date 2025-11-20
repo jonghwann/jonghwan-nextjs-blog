@@ -26,12 +26,12 @@
 :root {
   --background: #ffffff;
   --foreground: #000000;
-  --border: #eeeeee;
+  --border: #e0e0e0;
   --shadow: 0 0.2em 0.6em #e0e0e0;
   --secondary: #f1f3f5;
   --secondary-foreground: #212121;
   --secondary-hover: #dee2e6;
-  --tertiary-foreground: #666666;
+  --tertiary-foreground: #728082;
   --accent-foreground: #567ec0;
   --inverse: #232326;
   --inverse-foreground: #ffffff;
@@ -39,8 +39,8 @@
 }
 
 .dark {
-  --background: #1f1f1f;
-  --foreground: #ffffff;
+  --background: #1e1f21;
+  --foreground: #ededed;
   --border: #424242;
   --shadow: 0 0.2em 0.6em #1a1e22;
   --secondary: #2d2d2d;

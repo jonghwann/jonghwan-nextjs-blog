@@ -1,25 +1,17 @@
-pre[data-theme*=" "] {
-  background-color: var(--shiki-light-bg) !important;
+/* 줄번호 스타일 */
+[data-rehype-pretty-code-figure] code {
+  counter-reset: line;
 }
 
-pre[data-theme*=" "] code {
-  background-color: transparent !important;
-  color: var(--shiki-light) !important;
+[data-rehype-pretty-code-figure] [data-line]::before {
+  counter-increment: line;
 }
 
-pre[data-theme*=" "] code span {
-  color: var(--shiki-light) !important;
-}
-
-.dark pre[data-theme*=" "] {
-  background-color: var(--shiki-dark-bg) !important;
-}
-
-.dark pre[data-theme*=" "] code {
-  background-color: transparent !important;
-  color: var(--shiki-dark) !important;
-}
-
-.dark pre[data-theme*=" "] code span {
-  color: var(--shiki-dark) !important;
+[data-line-numbers] > [data-line]::before {
+  content: counter(line);
+  display: inline-block;
+  width: 1rem;
+  margin-right: 1.5rem;
+  text-align: right;
+  color: #738a9466;
 }

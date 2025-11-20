@@ -8,6 +8,7 @@ export { Sun } from './animate-ui/icons/sun';
 export { Tag } from './animate-ui/icons/tag';
 export { Wifi } from './animate-ui/icons/wifi';
 export { Button } from './button';
+export { CodeBlockHeader } from './code-block-header';
 export { Icon } from './icon';
 export { Input } from './input';
 export { ScrollProgressBar } from './scroll-progress-bar';
