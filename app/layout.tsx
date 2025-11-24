@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: SITE_CONFIG.title,
   description: SITE_CONFIG.description,
+  icons: {
+    icon: '/favicon.ico',
+  },
   verification: {
     google: SITE_CONFIG.verification.google,
     other: {
