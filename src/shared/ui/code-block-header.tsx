@@ -9,7 +9,7 @@ export function CodeBlockHeader({ language }: { language: string }) {
         ))}
       </div>
 
-      <span>{language.toUpperCase()}</span>
+      {language !== 'text' && <span>{language.toUpperCase()}</span>}
     </div>
   );
 }

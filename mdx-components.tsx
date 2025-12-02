@@ -5,7 +5,7 @@ import { CodeBlockHeader } from '@/shared/ui';
 const components: MDXComponents = {
   h2: ({ children, ...props }) => (
     <h2
-      className="mb-[1.5em] scroll-mt-[-2.1em] border-t pt-[2.1em] font-bold text-[2em] leading-[1.5] tracking-[-0.025em]"
+      className="mt-[2.1em] mb-[1.5em] font-bold text-[2em] leading-[1.5] tracking-[-0.025em] lg:text-[2.2em] xl:text-[2.3em]"
       {...props}
     >
       {children}
@@ -13,7 +13,7 @@ const components: MDXComponents = {
   ),
   h3: ({ children, ...props }) => (
     <h3
-      className="mt-[2em] mb-[1.5rem] font-bold text-[1.8em] leading-[1.5] tracking-[-0.025em]"
+      className="mt-[2em] mb-[1.5rem] font-bold text-[1.8em] leading-[1.5] tracking-[-0.025em] lg:text-[1.9em] xl:text-[2em]"
       {...props}
     >
       {children}
