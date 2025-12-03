@@ -1,0 +1,266 @@
+---
+title: "Next.js 블로그 만들기 (with @next/mdx)"
+date: "2025-12-03"
+tags: ["Next.js", "MDX"]
+series: "블로그"
+---
+
+> 이 글은 Next.js 16.0.4 버전을 기준으로 작성되었습니다.<br />
+> 전체 소스코드는 제 [GitHub 저장소](https://github.com/jonghwann/jonghwan-nextjs-blog-template)에서 확인하실 수 있어요. ~~star도 하나씩만..~~
+
+많은 개발자들이 기술 블로그를 운영하고 있습니다.
+배운 내용을 정리하거나, 문제 해결 과정을 기록하거나, 포트폴리오처럼 활용하기도 하죠.
+
+요즘은 검색보다 AI에게 먼저 질문하는 시대라 '블로그가 여전히 필요할까?' 하는 생각이 들기도 합니다.
+물론 AI가 좋은 답을 내주긴 하지만, 그건 어디까지나 일반적인 정답일 뿐이더라구요.
+실제 프로젝트에서 겪는 복잡한 상황이나 시행착오, 문제 해결 과정 같은 건 아직까지 AI가 충분히 담아내기 어려운 부분이라고 느꼈습니다.
+오히려 이런 이유 때문에, 개발자가 직접 자신의 경험을 기록으로 남기는 일이 더 중요해지고 있다는 생각이 들더라구요.
+
+저도 그런 글들에 많은 도움을 받아왔고, 자연스럽게 "나도 누군가에게 도움이 되는 글을 써보고 싶다"는 마음이 생겼습니다. 
+그래서 벨로그, 티스토리, 미디엄 등을 하나씩 사용해봤어요. 준비된 템플릿 위에 글만 올리면 되니 처음에는 꽤 편하고 만족스러웠습니다.
+
+하지만 글을 계속 쓰다 보니 어딘가 아쉬운 부분들이 눈에 들어오기 시작했습니다. 
+열심히 쓴 글인데도 결과물이 생각보다 예쁘지 않거나, 묘하게 허전해 보이는 순간들이 반복되더라구요. 
+그러다 보니 글을 쓰기보다 다른 사람들의 블로그를 구경하거나 템플릿을 찾아보면서 ‘이 테마로 옮겨볼까?’, ‘이 사람 블로그 구조는 어떻게 돼 있지?’ 같은 걸 고민하다가, 정작 내가 쓰려던 글은 한 줄도 못 쓰고 하루가 끝나는 날도 많았습니다.
+
+그렇게 시간을 보내다 보니 결국 "그냥 내 걸 직접 만들어야겠다"는 결론에 도달했습니다. 
+디자인도 내 취향대로 바꾸고, 필요한 기능도 마음껏 추가할 수 있는 그런 블로그 말이죠. 
+그래서 이번에는 아예 마음먹고, 직접 블로그를 만들어보기로 했습니다.
+
+## 시작하기 전에
+
+가장 먼저 고민한 건 "어떤 기술로 만들지"였습니다. 정적 사이트 생성기만 해도 Gatsby, Hugo, Jekyll 등 선택지가 꽤 많더라구요.
+
+![](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjBsb2Zya2l1YzlycDFoODhwbG8xbG9scmN2a3BrZmlyMXprM3Y4NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3og0Iwmv38WmJBrYvS/giphy.gif)
+<br/>
+
+저는 이미 익숙한 Next.js를 선택했습니다. 
+새로운 기술을 배우는 재미도 있긴 한데, 블로그는 한 번 만들고 끝이 아니라 꾸준히 글을 올리고 관리해야 하는 공간이니까요.
+지금 당장 빠르게 만들 수 있으면서도, 나중에 유지보수할 때 부담 없는 게 더 중요하다고 생각했습니다.
+
+그다음 고민은 콘텐츠 관리 방법이었습니다.
+데이터베이스나 CMS도 생각해봤는데, 오히려 관리 포인트만 늘어나는 느낌이더라구요.
+그래서 그냥 마크다운 기반으로 관리하는 게 가장 적합하겠다 싶었습니다.
+
+Next.js에서 마크다운을 사용하는 방법은 여러 가지가 있는데, 저는 Next.js 공식에서 지원하는 `@next/mdx`를 사용했습니다. 
+공식 방식이라는 점에서 안정성과 호환성 면에서 믿음이 갔고, 무엇보다 설정이 간단했습니다.
+
+## 개발 환경 세팅
+
+> [Node.js](https://nodejs.org/) 20.9 이상이 필요합니다.
+
+자, 그럼 이제 본격적으로 환경을 세팅해보도록 하겠습니다.
+Next.js를 한 번이라도 다뤄보신 분들이라면 쉽게 따라오실 수 있을 거예요.
+
+### Next.js
+
+Next.js [공식 CLI](https://nextjs.org/docs/app/getting-started/installation)를 통해 아주 간단하게 프로젝트를 생성할 수 있습니다.
+
+```bash
+npx create-next-app@latest
+```
+
+설치 과정에서 프로젝트 이름과 여러 옵션을 선택하게 되는데요, 만약 기본 설정을 그대로 사용하고 싶다면 `Yes, use recommended defaults`를 선택해주시면 됩니다. 그러면 TypeScript부터 Tailwind, App Router까지 깔끔하게 자동으로 설정됩니다.
+
+```text {3}
+What is your project named? my-app
+Would you like to use the recommended Next.js defaults?
+    Yes, use recommended defaults - TypeScript, ESLint, Tailwind CSS, App Router, Turbopack
+    No, reuse previous settings
+    No, customize settings - Choose your own preferences
+```
+
+하지만 저는 `Biome`을 사용하고 싶었기 때문에 `No, customize settings`를 선택했습니다. 제가 선택한 옵션은 아래와 같습니다.
+
+```text
+Would you like to use TypeScript? Yes
+Which linter would you like to use? Biome
+Would you like to use React Compiler? Yes
+Would you like to use Tailwind CSS? Yes
+Would you like your code inside a `src/` directory? Yes
+Would you like to use App Router? Yes
+Would you like to customize the import alias? No
+```
+
+취향에 따라 다르게 설정하실 수 있으니 참고만 하시면 될 것 같아요.
+
+### @next/mdx
+
+Next.js는 기본적으로 MDX를 인식하지 못합니다. 그래서 MDX 기반 블로그를 만들기 위해서는 몇 가지 패키지를 추가로 설치해야 합니다.
+
+```bash
+npm install @next/mdx @mdx-js/loader @mdx-js/react @types/mdx
+```
+
+설치가 끝났다면 `next.config.ts`에 MDX 설정을 넣어줍니다. 이 설정을 통해 `.mdx` 파일을 페이지 라우트로 사용하거나, 일반 컴포넌트처럼 `import`해서 사용할 수 있게 됩니다.
+
+```typescript showLineNumbers
+import createMDX from '@next/mdx';
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+};
+
+const withMDX = createMDX({});
+
+export default withMDX(nextConfig);
+```
+
+여기까지 하면 기본적인 환경 세팅은 끝났습니다. 생각보다 간단하죠?
+
+## 기능 개발
+
+환경 세팅은 끝났으니 이제 본격적으로 블로그 기능들을 만들어보겠습니다.
+MDX 파일을 작성하고, 파싱해서 목록과 상세 페이지를 보여주는 흐름을 구현해볼 텐데요, 천천히 따라오시면 어렵지 않습니다.
+
+### 글 저장
+
+먼저 블로그 글을 어디에 저장할지 정해야겠죠. 저는 프로젝트 루트에 `content` 디렉토리를 만들어서 모든 글을 관리하기로 했습니다.
+
+```text
+.
+├── content/
+│   ├── first-post.mdx
+│   ├── second-post.mdx
+│   └── ...
+├── src/
+└── ...
+```
+
+각 MDX 파일은 아래와 같은 구조를 가집니다.
+
+```mdx
+---
+title: "첫 번째 글"
+date: "2025-01-01"
+tags: ["Next.js", "Blog"]
+---
+
+# 안녕하세요
+
+이것은 첫 번째 글입니다.
+```
+
+상단의 `---`로 감싸진 영역이 `frontmatter`라고 부르는 메타데이터 영역입니다. 글 제목이나 날짜 같은 정보를 담고 있고, 본문은 그 아래부터 자유롭게 작성하시면 됩니다.
+
+### 글 파싱
+
+이제 `content` 디렉토리에 있는 MDX 파일들을 읽어서 메타데이터와 본문을 분리하는 작업이 필요합니다.
+이를 위해 `gray-matter` 라이브러리를 사용했습니다.
+
+```bash
+npm install gray-matter
+```
+
+아래는 MDX 파일을 파싱하는 함수입니다.
+
+```typescript showLineNumbers
+const POSTS_PATH = path.join(process.cwd(), 'content');
+
+export function parseMdxFiles(): MdxFile[] {
+  const files = readdirSync(POSTS_PATH);
+  const mdxFiles = files.filter((file) => file.endsWith('.mdx'));
+
+  return mdxFiles.map((mdxFile) => {
+    const slug = mdxFile.replace(/\.mdx$/, '');
+    const fullPath = path.join(POSTS_PATH, mdxFile);
+    const file = readFileSync(fullPath, 'utf8');
+    const { data, content } = matter(file);
+
+    return { slug, data: data as Frontmatter, content };
+  });
+}
+```
+
+`content` 디렉토리의 모든 `.mdx` 파일을 읽고, `slug`와 `gray-matter`로 분리한 메타데이터, 본문을 반환합니다. 여기까지 하면 글을 사용할 준비가 끝났습니다.
+
+### 목록 페이지
+
+파싱된 데이터를 이용해 블로그 글 목록 페이지를 만들어보겠습니다.  
+먼저 목록을 가져오는 함수입니다.
+
+```typescript showLineNumbers
+export function getPosts(): Post[] {
+  const mdxFiles = parseMdxFiles();
+
+  return mdxFiles.map(({ slug, data: { title, date, tags }, content }) => ({
+    slug,
+    title,
+    date: dayjs(date).format('MMMM DD, YYYY'),
+    description: content // 나중에 글자수 제한이나 마크다운 제거 필요
+    tags,
+  }));
+}
+```
+
+파싱된 MDX 파일들에서 필요한 정보만 추출해서 반환합니다.
+`description`은 나중에 미리보기 텍스트로 쓸 건데, 실제로는 글자 수 제한을 두거나 코드 블록을 제거하는 처리가 필요합니다.
+
+불러온 `posts`를 렌더링하면 목록 페이지가 완성됩니다.
+
+```tsx showLineNumbers {2, 7-11}
+export default function Page() {
+  const posts = getPosts();
+
+  return (
+    <section>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.slug}>
+            <PostItem {...post} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+```
+
+![목록 페이지 화면](/posts/nextjs-blog/1.png)
+*목록 페이지 화면*
+
+### 상세 페이지
+
+개별 글 페이지는 [dynamic import](https://nextjs.org/docs/app/guides/mdx#using-dynamic-imports)를 사용해 MDX 파일을 동적으로 불러오도록 구현했습니다.
+
+```tsx showLineNumbers {7, 9}
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  const { default: Post } = await import(`@/content/${slug}.mdx`)
+ 
+  return <Post />
+}
+```
+
+이렇게 하면 URL의 `slug`에 해당하는 MDX 파일을 직접 가져와서 렌더링할 수 있습니다. 정말 심플하죠?
+
+다만 이렇게 하면 `frontmatter`까지 화면에 그대로 출력되는 문제가 있는데요, 아래 설정을 추가해 해결했습니다.
+
+```typescript showLineNumbers {3}
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: ['remark-frontmatter'],
+  },
+});
+```
+
+이 플러그인을 추가하면 `frontmatter`는 렌더링되지 않고 메타데이터로만 활용됩니다.
+
+![상세 페이지 화면](/posts/nextjs-blog/2.png)
+*상세페이지 화면*
+
+## 마무리
+
+이렇게 해서 Next.js와 @next/mdx를 활용한 기본적인 블로그 구조를 만들어보았습니다.
+
+아직 다크 모드나 댓글 시스템, 검색 같은 기능들이 남아 있긴 한데, 일단 기본 틀은 이 정도면 충분히 완성됐다고 볼 수 있을 것 같네요.
+
+생각보다 설정이 간단해서 좋았습니다.
+공식 라이브러리를 쓰니까 문서도 잘 되어 있고, 큰 어려움 없이 만들 수 있었습니다.
+
+이번 포스트가 직접 블로그 만들어보고 싶은 분들께 도움이 되었길 바라며 다음 글에서는 추가 기능들을 하나씩 더 다뤄보도록 하겠습니다.
