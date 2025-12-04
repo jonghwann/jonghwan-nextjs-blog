@@ -3,11 +3,12 @@ import Link from 'next/link';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SITE_CONFIG } from '@/shared/config';
 import { cn } from '@/shared/lib';
-import { Icon } from '@/shared/ui';
+import { CareerlyIcon, Icon } from '@/shared/ui';
 
 const icons = [
   { icon: FaGithub, href: SITE_CONFIG.social.github },
   { icon: FaLinkedin, href: SITE_CONFIG.social.linkedin },
+  { icon: CareerlyIcon, href: SITE_CONFIG.social.careerly },
 ];
 
 export function Bio({ className }: { className?: string }) {
@@ -24,10 +25,10 @@ export function Bio({ className }: { className?: string }) {
 
       <div>
         <h2 className="mb-1 font-bold text-2xl leading-6">@{SITE_CONFIG.author.username}</h2>
-        <p className='mb-3 text-base'>{SITE_CONFIG.author.tagline}</p>
+        <p className="mb-3 text-base">{SITE_CONFIG.author.tagline}</p>
 
         <nav>
-          <ul className="flex items-center gap-2">
+          <ul className="flex items-center gap-3">
             {icons.map(({ icon, href }) => (
               <li key={href}>
                 <Link href={href} target="_blank">
