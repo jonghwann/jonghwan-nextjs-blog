@@ -21,7 +21,9 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const { title, description, date } = getCachedPost(slug);
+  const { title: postTitle, description, date } = getCachedPost(slug);
+
+  const title = `${postTitle} | ${SITE_CONFIG.title}`;
 
   return {
     title,
