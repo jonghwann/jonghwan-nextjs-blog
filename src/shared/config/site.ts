@@ -20,8 +20,8 @@ export const SITE_CONFIG = {
   giscus: {
     repo: 'jonghwann/jonghwan-nextjs-blog',
     repoId: 'R_kgDOQHGfog',
-    category: 'Announcements',
-    categoryId: 'DIC_kwDOQHGfos4Cw7z7',
+    category: 'General',
+    categoryId: 'DIC_kwDOQHGfos4Cw7z8',
     mapping: 'pathname',
     strict: '0',
     reactionsEnabled: '1',
