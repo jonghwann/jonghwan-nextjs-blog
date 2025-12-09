@@ -46,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="ko" suppressHydrationWarning>
       <body className={cn(notoSansKR.variable, sourceCodePro.variable, 'antialiased')}>
         <QueryProvider>
           <ThemeProvider>
