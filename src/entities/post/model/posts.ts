@@ -10,7 +10,10 @@ import type { GetPostsOptions, Navigation, Post } from './types';
  * @param maxLength - 텍스트 최대 길이 (선택, 지정하지 않으면 전체 텍스트 반환)
  */
 function extractPlainText(content: string, maxLength?: number): string {
-  const withoutCode = content.replace(/```[\s\S]*?```/g, '').replace(/`[^`]+`/g, '');
+  const withoutCode = content
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/`[^`]+`/g, '')
+    .replace(/^>\s?.*$/gm, '');
   const text = removeMd(withoutCode).replace(/\s+/g, ' ').trim();
 
   return maxLength && text.length > maxLength ? text.slice(0, maxLength) + '…' : text;
