@@ -13,7 +13,7 @@ export function PostToc({ toc, className }: PostTocProps) {
 
   return (
     <aside className={cn('min-w-[210px] flex-1', className)}>
-      <nav className='sticky top-[100px] mr-4 w-full border-l pl-4 text-[13.6px]'>
+      <nav className="sticky top-[100px] mr-4 w-full border-l pl-4 text-[13.6px]">
         <ul className="flex flex-col gap-[6.4px]">
           {toc.map(({ id, title, link, depth }) => (
             <li key={title} className={depth ? 'ml-4' : ''}>
