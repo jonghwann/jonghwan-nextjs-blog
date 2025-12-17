@@ -1,5 +1,4 @@
 import type { MDXComponents } from 'mdx/types';
-import Image from 'next/image';
 import { CodeBlockHeader } from '@/shared/ui';
 
 const components: MDXComponents = {
@@ -87,12 +86,10 @@ const components: MDXComponents = {
     );
   },
   img: (props) => (
-    <Image
-      width={0}
-      height={0}
-      sizes="100vw"
-      unoptimized
-      className="mx-auto h-auto w-auto max-w-full rounded-[0.5rem] shadow-[var(--shadow)]"
+    <img
+      src={props.src}
+      alt={props.alt}
+      className="mx-auto mt-8 mb-0 rounded-[0.5rem] shadow-[var(--shadow)]"
       {...props}
     />
   ),
