@@ -15,7 +15,7 @@ export const SITE_CONFIG = {
   social: {
     github: 'https://github.com/jonghwann',
     linkedin: 'https://linkedin.com/in/jonghwan',
-    careerly: 'https://careerly.co.kr/profiles/607286',
+    careerly: 'https://www.careerly.co.kr/profile/607286',
   },
   giscus: {
     repo: 'jonghwann/jonghwan-nextjs-blog',
