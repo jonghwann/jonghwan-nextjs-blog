@@ -34,10 +34,13 @@ export async function generateMetadata({
       type: 'article',
       publishedTime: dayjs(date).toISOString(),
       url: `${SITE_CONFIG.url}/${slug}`,
+      images: [SITE_CONFIG.ogImage],
     },
     twitter: {
+      card: 'summary_large_image',
       title,
       description,
+      images: [SITE_CONFIG.ogImage],
     },
   };
 }
