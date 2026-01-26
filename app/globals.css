@@ -18,6 +18,8 @@
   --color-inverse-foreground: var(--inverse-foreground);
   --color-inverse-hover: var(--inverse-hover);
   --font-noto-sans-kr: var(--font-noto-sans-kr);
+  --font-nanum-square: var(--font-nanum-square);
+  --font-nanum-square-round: var(--font-nanum-square-round);
   --font-source-code-pro: var(--font-source-code-pro);
   --z-header: 100;
   --z-scroll-progress-bar: 200;
@@ -59,7 +61,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-noto-sans-kr;
+    @apply bg-background text-foreground font-nanum-square;
   }
 
   .no-color-transitions * {

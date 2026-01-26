@@ -2,7 +2,13 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { QueryProvider, ThemeProvider } from '@/app/providers';
-import { notoSansKR, SITE_CONFIG, sourceCodePro } from '@/shared/config';
+import {
+  nanumSquare,
+  nanumSquareRound,
+  notoSansKR,
+  SITE_CONFIG,
+  sourceCodePro,
+} from '@/shared/config';
 import { cn } from '@/shared/lib';
 import { Layout } from '@/widgets/layout';
 import './globals.css';
@@ -47,7 +53,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className={cn(notoSansKR.variable, sourceCodePro.variable, 'antialiased')}>
+      <body
+        className={cn(
+          nanumSquare.variable,
+          nanumSquareRound.variable,
+          notoSansKR.variable,
+          sourceCodePro.variable,
+          'antialiased',
+        )}
+      >
         <QueryProvider>
           <ThemeProvider>
             <Layout>{children}</Layout>

@@ -4,7 +4,7 @@ import { CodeBlockHeader } from '@/shared/ui';
 const components: MDXComponents = {
   h2: ({ children, ...props }) => (
     <h2
-      className="mt-[2.1em] mb-[1.5em] font-bold text-[2em] leading-[1.5] tracking-[-0.025em] lg:text-[2.2em] xl:text-[2.3em]"
+      className="mt-[2.1em] mb-[1.5rem] font-bold text-[2em] leading-[1.5] tracking-[-0.025em] lg:text-[2.2em] xl:text-[2.3em]"
       {...props}
     >
       {children}
@@ -28,7 +28,7 @@ const components: MDXComponents = {
   ),
   blockquote: ({ children, ...props }) => (
     <blockquote
-      className="mt-[1.5rem] mb-[2rem] border-l-[0.4rem] bg-[#fafafa] p-[1rem] dark:bg-[#1e1e1e] [&>p]:mt-[2rem]"
+      className="mt-[1.5rem] mb-[2rem] border-l-[0.4rem] bg-[#fafafa] p-[1rem] dark:bg-[#27272A] [&>p]:mt-[2rem]"
       {...props}
     >
       {children}

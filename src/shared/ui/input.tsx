@@ -26,7 +26,7 @@ export function Input({ icon, classNames, ...rest }: InputProps) {
       <input
         autoComplete="off"
         className={cn(
-          'h-[46px] w-full min-w-0 rounded-lg bg-transparent px-3 text-base outline-none ring-1 ring-border placeholder:text-tertiary-foreground',
+          'h-[46px] w-full min-w-0 rounded-lg bg-transparent px-3 font-noto-sans-kr text-base outline-none ring-1 ring-border placeholder:text-tertiary-foreground',
           classNames?.input,
         )}
         {...rest}
