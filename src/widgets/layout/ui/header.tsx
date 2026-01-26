@@ -27,7 +27,7 @@ export function Header() {
 
   return (
     <header
-      className='fixed top-0 z-[var(--z-header)] w-full border-b bg-background/80 px-4 backdrop-blur-[5px]'
+      className="fixed top-0 z-[var(--z-header)] w-full border-b bg-background/80 px-4 backdrop-blur-[5px]"
       style={{ marginTop: isDesktop ? marginTop : 0 }}
     >
       <nav className="mx-auto max-w-[900px]">

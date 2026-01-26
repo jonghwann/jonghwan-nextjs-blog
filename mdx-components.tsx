@@ -28,7 +28,7 @@ const components: MDXComponents = {
   ),
   blockquote: ({ children, ...props }) => (
     <blockquote
-      className="mt-[1.5rem] mb-[2rem] border-l-[0.4rem] bg-[#f1f3f5] p-[1rem] dark:bg-[#1a1b1d] [&>p]:mt-[2rem]"
+      className="mt-[1.5rem] mb-[2rem] border-l-[0.4rem] bg-[#fafafa] p-[1rem] dark:bg-[#1e1e1e] [&>p]:mt-[2rem]"
       {...props}
     >
       {children}
@@ -63,7 +63,7 @@ const components: MDXComponents = {
   a: ({ children, ...props }) => (
     <a
       target="_blank"
-      className="underline decoration-wavy underline-offset-[0.4em] hover:text-accent-foreground"
+      className="underline decoration-dashed underline-offset-[0.4em] hover:text-accent-foreground"
       {...props}
     >
       {children}
