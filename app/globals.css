@@ -41,9 +41,9 @@
 }
 
 .dark {
-  --background: #1e1e1e;
+  --background: #1e1f21;
   --foreground: #e6e6e6;
-  --border: #3c3d40;
+  --border: #ffffff14;
   --shadow: 0 0.2em 0.6em #1a1e22;
   --secondary: #2c2d2e;
   --secondary-foreground: #8e8f97;
