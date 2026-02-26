@@ -53,7 +53,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   let navigation: Navigation;
 
   try {
-    const { default: PostComponent } = await import(`../../../content/${slug}.mdx`);
+    const { default: PostComponent } = await import(`../../content/${slug}.mdx`);
     PostContent = PostComponent;
     post = getCachedPost(slug);
     navigation = getPostNavigation(slug);

@@ -30,7 +30,7 @@ export function Header() {
       className="fixed top-0 z-[var(--z-header)] w-full border-b bg-background/80 px-4 backdrop-blur-[5px]"
       style={{ marginTop: isDesktop ? marginTop : 0 }}
     >
-      <nav className="mx-auto max-w-[900px]">
+      <nav className="mx-auto max-w-[680px]">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="font-bold font-source-code-pro text-xl tracking-[-1px]">
             jonghwan.blog
