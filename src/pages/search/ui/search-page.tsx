@@ -29,7 +29,7 @@ export function SearchPage({ posts }: { posts: Post[] }) {
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search"
         icon={<FiSearch />}
-        classNames={{ container: 'mb-[70px]', input: 'pl-10', icon: 'left-3' }}
+        classNames={{ container: 'mb-[56px]', input: 'pl-10', icon: 'left-3' }}
       />
 
       <PostList posts={filteredPosts} />
