@@ -28,7 +28,7 @@ export function Bio({ className }: { className?: string }) {
         <p className="mb-3 text-base">{SITE_CONFIG.author.tagline}</p>
 
         <nav>
-          <ul className="flex items-center gap-3">
+          <ul className="flex items-center gap-2">
             {icons.map(({ icon, href }) => (
               <li key={href}>
                 <Link href={href} target="_blank">

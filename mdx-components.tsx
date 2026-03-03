@@ -20,7 +20,7 @@ const components: MDXComponents = {
   ),
   p: ({ children, ...props }) => (
     <p
-      className="mb-[2rem] font-nanum-square-round text-[#24292e] leading-[1.9] sm:text-[1.05rem] lg:text-[1.1rem] xl:text-[1.15rem] dark:text-foreground [&_code]:mx-[0.2rem] [&_code]:break-words [&_code]:rounded-[0.4rem] [&_code]:bg-[#e9ecef] [&_code]:px-[0.3rem] [&_code]:py-[0.2rem] [&_code]:text-[0.9em] dark:[&_code]:bg-[#30323a]"
+      className="mb-[2rem] font-nanum-square-round leading-[1.9] sm:text-[1.05rem] lg:text-[1.1rem] xl:text-[1.15rem] dark:text-foreground [&_code]:mx-[0.2rem] [&_code]:break-words [&_code]:rounded-[0.4rem] [&_code]:bg-[#e9ecef] [&_code]:px-[0.3rem] [&_code]:py-[0.2rem] [&_code]:text-[0.9em] dark:[&_code]:bg-[#30323a]"
       {...props}
     >
       {children}
@@ -28,7 +28,7 @@ const components: MDXComponents = {
   ),
   blockquote: ({ children, ...props }) => (
     <blockquote
-      className="mt-[1.5rem] mb-[2rem] border-l-[0.4rem] bg-[#fafafa] p-[1rem] dark:bg-[#222326] [&>p]:mt-[2rem]"
+      className="mt-[1.5rem] mb-[2rem] rounded-[0.5rem] border-l-[0.5rem] bg-[#fafafa] p-[1rem] dark:bg-[#222222] [&>p]:mt-[2rem]"
       {...props}
     >
       {children}
