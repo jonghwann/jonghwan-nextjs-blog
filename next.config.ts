@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
 const withMDX = createMDX({
   options: {
     remarkPlugins: ['remark-frontmatter', 'remark-gfm'],
-    rehypePlugins: ['rehype-slug', ['rehype-pretty-code', { theme: 'dark-plus' }]],
+    rehypePlugins: ['rehype-slug', ['rehype-pretty-code', { theme: 'one-dark-pro' }]],
   },
 });
 
