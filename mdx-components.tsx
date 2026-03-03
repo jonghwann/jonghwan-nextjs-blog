@@ -77,7 +77,7 @@ const components: MDXComponents = {
         {language && <CodeBlockHeader language={language} />}
 
         <pre
-          className="!bg-[#252526] overflow-auto rounded-b-[0.5rem] py-[1em] leading-[1.9] sm:text-[1.05rem] lg:text-[1.1rem] xl:text-[1.15rem] [&_[data-highlighted-line]]:bg-[#2d2d2d] [&_code>span]:px-[1em]"
+          className="overflow-auto rounded-b-[0.5rem] py-[1em] leading-[1.9] sm:text-[1.05rem] lg:text-[1.1rem] xl:text-[1.15rem] [&_[data-highlighted-line]]:bg-[#31333d] [&_code>span]:px-[1em]"
           {...props}
         >
           {children}
