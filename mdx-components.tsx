@@ -28,7 +28,7 @@ const components: MDXComponents = {
   ),
   blockquote: ({ children, ...props }) => (
     <blockquote
-      className="mt-[1.5rem] mb-[2rem] rounded-[0.5rem] border-l-[0.5rem] bg-[#fafafa] p-[1rem] dark:bg-[#222222] [&>p]:mt-[2rem]"
+      className="mt-[1.5rem] mb-[2rem] rounded-[0.5rem] border-l-[0.5rem] bg-[#fafafa] p-[1rem] dark:bg-[#16181a] [&>p]:mt-[2rem]"
       {...props}
     >
       {children}
