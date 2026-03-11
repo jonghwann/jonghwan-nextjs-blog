@@ -26,9 +26,9 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #1a1d21;
-  --border: #ebebeb;
+  --background: #faf9f6;
+  --foreground: #141413;
+  --border: #d1cfc5;
   --shadow: 0 0.2em 0.6em #e0e0e0;
   --secondary: #0000000d;
   --secondary-foreground: #666666;
