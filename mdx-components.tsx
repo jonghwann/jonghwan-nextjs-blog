@@ -27,7 +27,7 @@ const components: MDXComponents = {
   ),
   blockquote: ({ children, ...props }) => (
     <blockquote
-      className="mt-[1.5rem] mb-[2rem] rounded-[0.5rem] border-l-[0.5rem] bg-[#fafafa] p-[1rem] dark:bg-[#1f1e1d] [&>p]:mt-[2rem]"
+      className="mt-[1.5rem] mb-[2rem] rounded-[0.5rem] border-l-[0.5rem] bg-[#fafafa] p-[1rem] dark:bg-[#16181a] [&>p]:mt-[2rem]"
       {...props}
     >
       {children}
@@ -70,7 +70,7 @@ const components: MDXComponents = {
   ),
   pre: ({ children, ...props }) => (
     <pre
-      className="mb-[2rem] overflow-auto rounded-[0.5rem] py-[1.05em] text-[0.85rem] leading-[1.9] sm:text-[1rem] [&_[data-highlighted-line]]:bg-[#edebe4] [&_code>span]:px-[1.05em]"
+      className="!bg-[#2d2d2d] mb-[2rem] overflow-auto rounded-[0.5rem] py-[1.05em] text-[0.85rem] leading-[1.9] shadow-[var(--shadow)] sm:text-[1rem] [&_[data-highlighted-line]]:bg-[#37373d] [&_code>span]:px-[1.05em] [&_code>span]:font-[Consolas,Monaco,monospace]"
       {...props}
     >
       {children}
