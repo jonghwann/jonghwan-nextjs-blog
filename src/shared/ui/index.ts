@@ -9,7 +9,6 @@ export { Tag } from './animate-ui/icons/tag';
 export { Wifi } from './animate-ui/icons/wifi';
 export { Button } from './button';
 export { CareerlyIcon } from './careerly-icon.tsx';
-export { CodeBlockHeader } from './code-block-header';
 export { Icon } from './icon';
 export { Input } from './input';
 export { ScrollProgressBar } from './scroll-progress-bar';

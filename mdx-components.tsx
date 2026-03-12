@@ -1,5 +1,4 @@
 import type { MDXComponents } from 'mdx/types';
-import { CodeBlockHeader } from '@/shared/ui';
 
 const components: MDXComponents = {
   h2: ({ children, ...props }) => (
@@ -28,7 +27,7 @@ const components: MDXComponents = {
   ),
   blockquote: ({ children, ...props }) => (
     <blockquote
-      className="mt-[1.5rem] mb-[2rem] rounded-[0.5rem] border-l-[0.5rem] bg-[#f1eee6] p-[1rem] dark:bg-[#16181a] [&>p]:mt-[2rem]"
+      className="mt-[1.5rem] mb-[2rem] rounded-[0.5rem] border-l-[0.5rem] bg-[#fafafa] p-[1rem] dark:bg-[#1f1e1d] [&>p]:mt-[2rem]"
       {...props}
     >
       {children}
@@ -46,7 +45,7 @@ const components: MDXComponents = {
   ),
   li: ({ children, ...props }) => (
     <li
-      className="font-nanum-square-round marker:text-sm sm:text-[1.05rem] lg:text-[1.1rem] xl:text-[1.15rem] [&>p]:mt-[0.25rem] [&>p]:mb-[0.5rem]"
+      className="font-nanum-square-round sm:text-[1.05rem] lg:text-[1.1rem] xl:text-[1.15rem] xl:marker:text-[1.2rem] [&>p]:mt-[0.25rem] [&>p]:mb-[0.5rem]"
       {...props}
     >
       {children}
@@ -63,28 +62,20 @@ const components: MDXComponents = {
   a: ({ children, ...props }) => (
     <a
       target="_blank"
-      className="underline decoration-dashed underline-offset-[0.4em] hover:text-accent-foreground"
+      className="underline underline-offset-[0.18em] hover:text-accent-foreground"
       {...props}
     >
       {children}
     </a>
   ),
-  pre: ({ children, ...props }) => {
-    const language = props['data-language'];
-
-    return (
-      <div className="mb-[2rem]">
-        {language && <CodeBlockHeader language={language} />}
-
-        <pre
-          className="overflow-auto rounded-b-[0.5rem] py-[1em] text-[0.85rem] leading-[1.9] sm:text-[0.95rem] [&_[data-highlighted-line]]:bg-[#31333d] [&_code>span]:px-[1em]"
-          {...props}
-        >
-          {children}
-        </pre>
-      </div>
-    );
-  },
+  pre: ({ children, ...props }) => (
+    <pre
+      className="mb-[2rem] overflow-auto rounded-[0.5rem] py-[1.05em] text-[0.85rem] leading-[1.9] sm:text-[1rem] [&_[data-highlighted-line]]:bg-[#edebe4] [&_code>span]:px-[1.05em]"
+      {...props}
+    >
+      {children}
+    </pre>
+  ),
   img: (props) => (
     <img
       src={props.src}
