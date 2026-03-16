@@ -14,15 +14,12 @@ export function Header() {
   const marginTop = useScrollVisibility(65, isDesktop);
 
   useEffect(() => {
-    if (isVisible) {
-      hide();
-    }
+    if (isVisible) hide();
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   useEffect(() => {
-    if (isDesktop && isVisible) {
-      hide();
-    }
+    if (isDesktop && isVisible) hide();
   }, [isDesktop]);
 
   return (
