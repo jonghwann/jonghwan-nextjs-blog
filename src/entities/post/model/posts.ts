@@ -70,7 +70,7 @@ export function getPost(slug: string): Post {
   if (!post) throw new Error(`Post not found: ${slug}`);
 
   const {
-    data: { title, date, tags },
+    data: { title, date, tags, series },
     content,
   } = post;
 
@@ -82,6 +82,7 @@ export function getPost(slug: string): Post {
     content: content,
     readingTime: Math.ceil(readingTime(content).minutes),
     tags,
+    ...(series && { series }),
   };
 }
 

@@ -11,6 +11,7 @@ import { Bio } from '@/widgets/bio';
 import { Giscus } from '@/widgets/giscus';
 import { PostHeader } from '@/widgets/post-header';
 import { PostNavigation } from '@/widgets/post-navigation';
+import { PostSeries } from '@/widgets/post-series-list';
 import { PostToc } from '@/widgets/post-toc';
 
 const getCachedPost = cache(getPost);
@@ -63,6 +64,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   }
 
   const toc = generateToc(post.content ?? '');
+  const seriesPosts = post.series ? getPosts({ series: post.series }) : [];
 
   return (
     <div>
@@ -71,6 +73,15 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
       <div className="flex gap-14">
         <div className="w-full lg:min-w-[680px]">
+          {post.series && seriesPosts.length > 1 && (
+            <PostSeries
+              series={post.series}
+              posts={seriesPosts}
+              currentSlug={slug}
+              className="mb-8"
+            />
+          )}
+
           <PostContent />
           <PostNavigation navigation={navigation} />
           <Bio className="my-12 border-b pb-8" />
