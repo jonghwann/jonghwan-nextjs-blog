@@ -142,7 +142,7 @@ tags: ["Next.js", "Blog"]
 이것은 첫 번째 글입니다.
 ```
 
-상단의 `---`로 감싸진 영역을 `frontmatter`라고 라고 부르는데요, 글 제목이나 날짜 같은 메타데이터를 담고 있습니다.
+상단의 `---`로 감싸진 영역을 `frontmatter`라고 부르는데요, 글 제목이나 날짜 같은 메타데이터를 담고 있습니다.
 본문은 그 아래부터 자유롭게 작성하시면 됩니다.
 
 ### 글 파싱
@@ -190,7 +190,7 @@ export function getPosts(): Post[] {
     slug,
     title,
     date: dayjs(date).format('MMMM DD, YYYY'),
-    description: content // 나중에 글자수 제한이나 마크다운 제거 필요
+    description: content, // 나중에 글자수 제한이나 마크다운 제거 필요
     tags,
   }));
 }
