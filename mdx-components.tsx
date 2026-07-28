@@ -51,6 +51,29 @@ const components: MDXComponents = {
       {children}
     </li>
   ),
+  table: ({ children, ...props }) => (
+    <div className="my-[2rem] overflow-x-auto rounded-[0.5rem] border">
+      <table
+        className="w-full min-w-[640px] border-collapse text-left font-nanum-square-round text-[0.95rem] leading-[1.7] sm:text-[1rem] [&_code]:mx-[0.1rem] [&_code]:break-words [&_code]:rounded-[0.35rem] [&_code]:bg-[#e9ecef] [&_code]:px-[0.25rem] [&_code]:py-[0.15rem] [&_code]:text-[0.9em] dark:[&_code]:bg-[#30323a]"
+        {...props}
+      >
+        {children}
+      </table>
+    </div>
+  ),
+  th: ({ children, ...props }) => (
+    <th
+      className="border-r bg-secondary px-[1rem] py-[0.8rem] align-top font-bold last:border-r-0"
+      {...props}
+    >
+      {children}
+    </th>
+  ),
+  td: ({ children, ...props }) => (
+    <td className="border-t border-r px-[1rem] py-[0.8rem] align-top last:border-r-0" {...props}>
+      {children}
+    </td>
+  ),
   em: ({ children, ...props }) => (
     <em
       className="block p-[10px] text-center text-[0.9rem] text-tertiary-foreground not-italic leading-[1.9]"
@@ -62,7 +85,7 @@ const components: MDXComponents = {
   a: ({ children, ...props }) => (
     <a
       target="_blank"
-      className="underline underline-offset-[0.18em] hover:text-accent-foreground"
+      className="underline decoration-dashed underline-offset-[0.45em] hover:text-accent-foreground"
       {...props}
     >
       {children}
