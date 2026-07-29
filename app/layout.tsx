@@ -53,6 +53,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
+      <head>
+        {/* Google AdSense */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8527607319229484"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
         className={cn(
           nanumSquare.variable,
