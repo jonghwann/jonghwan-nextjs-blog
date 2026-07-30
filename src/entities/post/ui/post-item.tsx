@@ -10,7 +10,7 @@ export function PostItem({ slug, title, date, description, tags }: Post) {
       </Link>
 
       <time className="mb-4 block text-secondary-foreground text-sm leading-[1]">{date}</time>
-      <p className='mb-8 leading-[1.7]'>{description}</p>
+      <p className="mb-8 leading-[1.7]">{description}</p>
 
       <PostTagList tags={tags} />
     </article>
