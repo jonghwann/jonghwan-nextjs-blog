@@ -1,7 +1,7 @@
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
-import { QueryProvider, ThemeProvider } from '@/app/providers';
+import { ThemeProvider } from '@/app/providers';
 import {
   nanumSquare,
   nanumSquareRound,
@@ -70,11 +70,9 @@ export default function RootLayout({
           'antialiased',
         )}
       >
-        <QueryProvider>
-          <ThemeProvider>
-            <Layout>{children}</Layout>
-          </ThemeProvider>
-        </QueryProvider>
+        <ThemeProvider>
+          <Layout>{children}</Layout>
+        </ThemeProvider>
 
         <Analytics />
         <SpeedInsights />
